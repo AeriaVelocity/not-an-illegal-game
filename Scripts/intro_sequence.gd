@@ -9,7 +9,8 @@ var version_strings = {
 
 var STARTUP_TEXT = """GogetterBIOS v{engine_version}
 
-Welcome to Not An Illegal Game (v{game_version})
+Welcome to Not An Illegal DOS (v{game_version})
+Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
 
 C:\\>(TYPED)naig
 
@@ -17,7 +18,8 @@ Starting Not An Illegal Game...""".format(version_strings)
 
 var SETUP_TEXT = """GogetterBIOS v{engine_version}
 
-Welcome to Not An Illegal Game (v{game_version})
+Welcome to Not An Illegal DOS (v{game_version})
+Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
 
 C:\\>(TYPED)A:
 

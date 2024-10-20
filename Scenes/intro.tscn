@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/intro_sequence.gd" id="1_j8b0u"]
 
-[sub_resource type="SystemFont" id="SystemFont_ftk62"]
+[sub_resource type="SystemFont" id="SystemFont_or8xq"]
 font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Menlo", "Monospace")
 font_weight = 500
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_5yfoo"]
-font = SubResource("SystemFont_ftk62")
+font = SubResource("SystemFont_or8xq")
 font_size = 22
 
 [node name="Intro" type="Control"]
