@@ -14,6 +14,7 @@ config/name="Not An Illegal Game"
 config/version="0.1.0"
 run/main_scene="res://Scenes/intro.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Graphics/icon.svg"
 
 [display]
@@ -27,3 +28,4 @@ window/size/resizable=false
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
