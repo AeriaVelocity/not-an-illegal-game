@@ -1,0 +1,156 @@
+[gd_scene load_steps=7 format=3 uid="uid://bygcowckre38n"]
+
+[ext_resource type="Script" path="res://Scripts/preinstallation_interaction.gd" id="1_0t6bx"]
+
+[sub_resource type="SystemFont" id="SystemFont_or8xq"]
+font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Menlo", "Monospace")
+font_weight = 500
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_k1qia"]
+font = SubResource("SystemFont_or8xq")
+font_size = 22
+
+[sub_resource type="Animation" id="Animation_6lioa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen 1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x46hj"]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen 1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q10hv"]
+_data = {
+"RESET": SubResource("Animation_6lioa"),
+"appear": SubResource("Animation_x46hj")
+}
+
+[node name="Preinstallation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.537255, 1)
+script = ExtResource("1_0t6bx")
+
+[node name="Screen 0" type="Control" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Screen 0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "About Setup
+===========
+
+    Not An Illegal Game Setup is designed to set up Not An Illegal Game on your \"computer\".
+    
+    You type stuff in, you press Enter a lot, and that makes it go!
+    
+    Now press 1 to get back to Setup so you can play the bloody game."
+label_settings = SubResource("LabelSettings_k1qia")
+autowrap_mode = 2
+
+[node name="Screen 1" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Screen 1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Not An Illegal Game Setup
+=========================
+
+    Welcome to Setup.
+
+    The Setup program prepares Not An Illegal Game to run on your totally real and not at all simulated computer.
+
+      * To set up Not An Illegal Game now, press Enter.
+      * To learn more about Setup before continuing, press 1.
+      * To quit Setup without installing Not An Illegal Game, press 3.
+      
+    Note: If you have not backed up your files recently, don't worry. You don't have files.
+          To back up the files that you don't have, press 3 to quit Setup now. Then, back up your lack of files by using a backup program.
+    
+    To continue with Setup, press Enter."
+label_settings = SubResource("LabelSettings_k1qia")
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+libraries = {
+"": SubResource("AnimationLibrary_q10hv")
+}

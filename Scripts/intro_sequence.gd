@@ -14,7 +14,9 @@ Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
 
 C:\\>(TYPED)naig
 
-Starting Not An Illegal Game...""".format(version_strings)
+Starting Not An Illegal Game...
+(WAIT=0.8s)
+(SCENE=Scenes/startup.tscn)""".format(version_strings)
 
 var SETUP_TEXT = """GogetterBIOS v{engine_version}
 
@@ -37,7 +39,8 @@ Just letting you know now: EVERYTHING BEYOND THIS POINT is fictional, no matter 
 If you accept these terms, press the Enter key to proceed to Setup.
 (You won't see this screen again next time you start the game.)
 
-(USERWAIT)""".format(version_strings)
+(USERWAIT)
+(SCENE=Scenes/preinstallation.tscn)""".format(version_strings)
 
 func animate_characters(line, speed):
     var index = line.find("(TYPED)")
