@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Not An Illegal Game"
+config/version="0.1.0"
+run/main_scene="res://Scenes/intro.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Graphics/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
+window/size/resizable=false
 
 [rendering]
 

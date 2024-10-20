@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwdhkid85616g"]
+
+[ext_resource type="Script" path="res://Scripts/intro_sequence.gd" id="1_j8b0u"]
+
+[sub_resource type="SystemFont" id="SystemFont_ftk62"]
+font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Menlo", "Monospace")
+font_weight = 500
+
+[sub_resource type="LabelSettings" id="LabelSettings_5yfoo"]
+font = SubResource("SystemFont_ftk62")
+font_size = 22
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_5yfoo")
+autowrap_mode = 2
+text_overrun_behavior = 2
+script = ExtResource("1_j8b0u")
