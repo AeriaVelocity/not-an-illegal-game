@@ -7,6 +7,15 @@ var version_strings = {
     "game_version": ProjectSettings.get_setting("application/config/version"),
 }
 
+var UNSUPPORTED_TEXT = """GogetterBIOS v{engine_version}
+
+Welcome to Not An Illegal DOS (v{game_version})
+Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
+
+This game is not supported on your {platform_name} device.
+
+System halted.""".format(version_strings).format({ "platform_name": OS.get_name() })
+
 var STARTUP_TEXT = """GogetterBIOS v{engine_version}
 
 Welcome to Not An Illegal DOS (v{game_version})
@@ -109,12 +118,13 @@ func animate_text(input):
 
         await get_tree().create_timer(line_delay).timeout
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-    # For now, default to SETUP_TEXT since we're just starting out
-    animate_text(SETUP_TEXT)
+    match OS.get_name():
+        "Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
+            animate_text(SETUP_TEXT)
+        _:
+            animate_text(UNSUPPORTED_TEXT)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
     if event is InputEventKey and Input.is_action_just_pressed("ui_accept"):
         emit_signal("enter_pressed")
