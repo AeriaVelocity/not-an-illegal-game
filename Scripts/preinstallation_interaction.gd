@@ -74,6 +74,11 @@ func set_screen():
 func set_colours():
     var main = "#0000a8"
     var gray = "#a8a8a8"
+
+    var exit_prompt_title_label = load("res://Resources/exit-prompt-title-label.tres")
+    var exit_prompt_title_style = load("res://Resources/exit-prompt-title-style.tres")
+    var exit_prompt_outline_style = load("res://Resources/exit-prompt-outline.tres")
+
     if colour_removed:
         main = Color.BLACK
 
@@ -82,11 +87,19 @@ func set_colours():
         $Keys.color = main
         current_node.get_node("Label").modulate = Color.BLACK
         $Keys/Label.modulate = Color.WHITE
+        $ExitPrompt.color = Color.BLACK
+        exit_prompt_title_style.bg_color = Color.BLACK
+        exit_prompt_outline_style.border_color = gray
+        exit_prompt_title_label.font_color = gray
     else:
         color = main
         $Keys.color = gray
         current_node.get_node("Label").modulate = Color.WHITE
         $Keys/Label.modulate = Color.BLACK
+        $ExitPrompt.color = gray
+        exit_prompt_title_style.bg_color = gray
+        exit_prompt_outline_style.border_color = Color.BLACK
+        exit_prompt_title_label.font_color = Color.BLACK
 
 func _process(_delta):
     if not is_ready:

@@ -2,27 +2,14 @@
 
 [ext_resource type="Script" path="res://Scripts/preinstallation_interaction.gd" id="1_0t6bx"]
 [ext_resource type="FontFile" uid="uid://c5c2w3cb83hy5" path="res://Mx437_IBM_VGA_8x16.ttf" id="2_e22ee"]
+[ext_resource type="StyleBox" uid="uid://417p4qpiqo1f" path="res://Resources/exit-prompt-outline.tres" id="3_g30y1"]
+[ext_resource type="StyleBox" uid="uid://b3ltxto4iuhit" path="res://Resources/exit-prompt-title-style.tres" id="3_rlku3"]
+[ext_resource type="LabelSettings" uid="uid://bhsc5ul65tafm" path="res://Resources/exit-prompt-title-label.tres" id="5_kb7wm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gg2ix"]
 font = ExtResource("2_e22ee")
 font_size = 32
 font_color = Color(0.658824, 0.658824, 0.658824, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rrqj"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46cxa"]
-bg_color = Color(0.658824, 0.658824, 0.658824, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_56kpa"]
-font = ExtResource("2_e22ee")
-font_size = 32
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6lioa"]
 length = 0.001
@@ -141,8 +128,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Setup Help
-══════════
+text = " 
+ Setup Help
+ ══════════
     
     Using Setup
     
@@ -188,8 +176,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Not An Illegal Game Setup
-═════════════════════════
+text = " 
+ Not An Illegal Game Setup
+ ═════════════════════════
     
     Welcome to Setup.
     
@@ -202,9 +191,10 @@ text = "Not An Illegal Game Setup
     
       • To quit Setup without installing Not An Illegal Game, press F3.
     
-    Note: If you have not backed up your files recently, don't worry. You don't have files.
-          To back up the files that you don't have, press F3 to quit Setup now.
-          Then, back up your lack of files by using a backup program.
+    Note: If you have not backed up your files recently, don't worry - you don't
+          have files. You don't even have a filesystem. To back up the files
+          that you don't have, press F3 to quit Setup now. Then, back up your
+          lack of files by using a backup program.
     
     To continue with Setup, press Enter."
 label_settings = SubResource("LabelSettings_gg2ix")
@@ -226,8 +216,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Not An Illegal Game Setup
-═════════════════════════
+text = " 
+ Not An Illegal Game Setup
+ ═════════════════════════
  
     ..."
 label_settings = SubResource("LabelSettings_gg2ix")
@@ -260,7 +251,7 @@ offset_right = -5.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7rrqj")
+theme_override_styles/panel = ExtResource("3_g30y1")
 
 [node name="Title" type="Label" parent="Background/ExitPrompt"]
 layout_mode = 1
@@ -271,9 +262,9 @@ offset_left = -127.0
 offset_right = 127.0
 offset_bottom = 32.0
 grow_horizontal = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_46cxa")
+theme_override_styles/normal = ExtResource("3_rlku3")
 text = "Exiting Setup"
-label_settings = SubResource("LabelSettings_56kpa")
+label_settings = ExtResource("5_kb7wm")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -295,7 +286,7 @@ Not An Illegal Game is not completely installed. If you quit Setup now, you are 
  
   • To return to the previous screen, press Escape.
 "
-label_settings = SubResource("LabelSettings_56kpa")
+label_settings = ExtResource("5_kb7wm")
 autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
