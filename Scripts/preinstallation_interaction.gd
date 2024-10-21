@@ -7,6 +7,7 @@ var current_node: Control
 var previous_node: Control
 
 var is_ready = false
+var colour_removed = false
 
 @onready var animations = $AnimationPlayer
 
@@ -35,6 +36,8 @@ func _input(event):
                     current_screen = 0
                 if key == "3" || key == "F3":
                     get_tree().quit()
+                if key == "5" || key == "F5":
+                    colour_removed = true
             _:
                 pass
 
@@ -45,7 +48,7 @@ func set_keys():
         0:
             keys.text = "F3=Quit  Escape=Previous Screen"
         1:
-            keys.text = "Enter=Continue  F1=Help  F3=Quit"
+            keys.text = "Enter=Continue  F1=Help  F3=Quit  F5=Remove Colour"
         _:
             keys.text = "???"
 
@@ -61,14 +64,18 @@ func set_screen():
     set_keys()
 
 func set_colours():
+    var main = "#000089"
+    if colour_removed:
+        main = Color.BLACK
+
     if current_screen == 0:
-        color = "#afafaf"
-        $Keys.color = "#000089"
+        color = "#cecece"
+        $Keys.color = main
         current_node.get_node("Label").modulate = Color.BLACK
         $Keys/Label.modulate = Color.WHITE
     else:
-        color = "#000089"
-        $Keys.color = "#afafaf"
+        color = main
+        $Keys.color = "#cecece"
         current_node.get_node("Label").modulate = Color.WHITE
         $Keys/Label.modulate = Color.BLACK
 
