@@ -31,7 +31,7 @@ A:\\>(WAIT=0.3s)(TYPED)setup
 
 Initialising Not An Illegal Game...
 
-============ WARNING ============
+════════════ WARNING ════════════
 It is a serious crime to copy video games according to copyright law.
 If you downloaded this game illegally, power off your PC, sit in the corner and think about what you've done.
 Anyway, this game is made to resemble an old 90s operating system that can't be named for copyright/trademark reasons. You know, the one out of Redmond.

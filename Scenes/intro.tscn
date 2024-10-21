@@ -6,7 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_05w7b"]
 font = ExtResource("1_w7rxy")
 font_size = 32
-font_color = Color(0.808998, 0.808998, 0.808998, 1)
+font_color = Color(0.658824, 0.658824, 0.658824, 1)
 
 [node name="Intro" type="Control"]
 layout_mode = 3

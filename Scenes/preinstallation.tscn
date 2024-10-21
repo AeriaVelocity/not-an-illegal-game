@@ -6,7 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_gg2ix"]
 font = ExtResource("2_e22ee")
 font_size = 32
-font_color = Color(0.807843, 0.807843, 0.807843, 1)
+font_color = Color(0.658824, 0.658824, 0.658824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rrqj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,7 +17,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46cxa"]
-bg_color = Color(0.807843, 0.807843, 0.807843, 1)
+bg_color = Color(0.658824, 0.658824, 0.658824, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_56kpa"]
 font = ExtResource("2_e22ee")
@@ -100,7 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0.537255, 1)
+color = Color(0, 0, 0.658824, 1)
 script = ExtResource("1_0t6bx")
 
 [node name="Keys" type="ColorRect" parent="Background"]
@@ -112,7 +112,7 @@ anchor_bottom = 1.0
 offset_top = -30.0
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0.687215, 0.687215, 0.687215, 1)
+color = Color(0.65098, 0.65098, 0.65098, 1)
 
 [node name="Label" type="Label" parent="Background/Keys"]
 modulate = Color(0, 0, 0, 1)
@@ -142,7 +142,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Setup Help
-===========
+══════════
     
     Using Setup
     
@@ -189,7 +189,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Not An Illegal Game Setup
-=========================
+═════════════════════════
     
     Welcome to Setup.
     
@@ -229,8 +229,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Not An Illegal Game Setup
-=========================
-
+═════════════════════════
+ 
     ..."
 label_settings = SubResource("LabelSettings_gg2ix")
 autowrap_mode = 2
@@ -249,7 +249,7 @@ offset_right = 513.0
 offset_bottom = 179.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.807843, 0.807843, 0.807843, 1)
+color = Color(0.658824, 0.658824, 0.658824, 1)
 
 [node name="Outline" type="Panel" parent="Background/ExitPrompt"]
 layout_mode = 1

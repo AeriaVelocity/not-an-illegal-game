@@ -72,18 +72,19 @@ func set_screen():
     set_keys()
 
 func set_colours():
-    var main = "#000089"
+    var main = "#0000a8"
+    var gray = "#a8a8a8"
     if colour_removed:
         main = Color.BLACK
 
     if current_screen == 0:
-        color = "#cecece"
+        color = gray
         $Keys.color = main
         current_node.get_node("Label").modulate = Color.BLACK
         $Keys/Label.modulate = Color.WHITE
     else:
         color = main
-        $Keys.color = "#cecece"
+        $Keys.color = gray
         current_node.get_node("Label").modulate = Color.WHITE
         $Keys/Label.modulate = Color.BLACK
 
