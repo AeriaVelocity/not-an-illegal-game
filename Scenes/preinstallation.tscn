@@ -1,15 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://bygcowckre38n"]
 
 [ext_resource type="Script" path="res://Scripts/preinstallation_interaction.gd" id="1_0t6bx"]
+[ext_resource type="FontFile" uid="uid://c5c2w3cb83hy5" path="res://Mx437_IBM_VGA_8x16.ttf" id="2_e22ee"]
 
-[sub_resource type="SystemFont" id="SystemFont_or8xq"]
-font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Menlo", "Monospace")
-font_weight = 500
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_k1qia"]
-font = SubResource("SystemFont_or8xq")
-font_size = 22
+[sub_resource type="LabelSettings" id="LabelSettings_gg2ix"]
+font = ExtResource("2_e22ee")
+font_size = 32
+font_color = Color(0.807843, 0.807843, 0.807843, 1)
 
 [sub_resource type="Animation" id="Animation_6lioa"]
 length = 0.001
@@ -90,6 +87,28 @@ grow_vertical = 2
 color = Color(0, 0, 0.537255, 1)
 script = ExtResource("1_0t6bx")
 
+[node name="Keys" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.687215, 0.687215, 0.687215, 1)
+
+[node name="Label" type="Label" parent="Background/Keys"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enter=Continue  F1=Help  F3=Exit"
+label_settings = SubResource("LabelSettings_gg2ix")
+
 [node name="Screen 0" type="Control" parent="Background"]
 visible = false
 layout_mode = 1
@@ -106,15 +125,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "About Setup
+text = "Setup Help
 ===========
-
-    Not An Illegal Game Setup is designed to set up Not An Illegal Game on your \"computer\".
     
-    You type stuff in, you press Enter a lot, and that makes it go!
+    Using Setup
     
-    Now press 1 to get back to Setup so you can play the bloody game."
-label_settings = SubResource("LabelSettings_k1qia")
+    Setup installs Not An Illegal Game to your \"computer's\" \"hard disk\".
+    The Setup program:
+    
+      • Identifies your \"computer's\" components (display, keyboard, mouse,
+        network, modem, laser guidance system, time manipulation device, and so
+        on).
+    
+      • Completely screws up your \"hard disk\", if necessary, so that Not An
+        Illegal Game learns what it's like to feel pain.
+     
+    CDR100: Unknown error
+    CDR101: Known error
+    CDR102: Schrödinger's error
+    CDR103: Door open
+    CDR104: Door exactly halfway open
+    Sometimes Setup makes up random stuff for the hell of it. To choose the
+    stuff you wish to be gaslighted by, press Enter. To choose a different
+    option, use the Arrow keys to select the option you want, and then press
+    Enter.
+    
+    Not An Illegal Game is a puzzle/OS simulation game which will break the
+    concepts of everything you know about digital computing. You will use the
+    system, you will not use the system. You will win the game, you will not win
+    the game. This system was not made for you to understand."
+label_settings = SubResource("LabelSettings_gg2ix")
 autowrap_mode = 2
 
 [node name="Screen 1" type="Control" parent="Background"]
@@ -134,20 +174,49 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Not An Illegal Game Setup
 =========================
-
+    
     Welcome to Setup.
-
-    The Setup program prepares Not An Illegal Game to run on your totally real and not at all simulated computer.
-
-      * To set up Not An Illegal Game now, press Enter.
-      * To learn more about Setup before continuing, press 1.
-      * To quit Setup without installing Not An Illegal Game, press 3.
-      
+    
+    The Setup program prepares Not An Illegal Game to run on your
+    totally real and not at all simulated computer.
+    
+      • To set up Not An Illegal Game now, press Enter.
+    
+      • To learn more about Setup before continuing, press F1.
+    
+      • To quit Setup without installing Not An Illegal Game, press F3.
+    
+    ** If your keyboard does not have function keys, use the number keys instead. **
+    
     Note: If you have not backed up your files recently, don't worry. You don't have files.
-          To back up the files that you don't have, press 3 to quit Setup now. Then, back up your lack of files by using a backup program.
+          To back up the files that you don't have, press F3 to quit Setup now.
+          Then, back up your lack of files by using a backup program.
     
     To continue with Setup, press Enter."
-label_settings = SubResource("LabelSettings_k1qia")
+label_settings = SubResource("LabelSettings_gg2ix")
+autowrap_mode = 2
+
+[node name="Screen 2" type="Control" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Screen 2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Not An Illegal Game Setup
+=========================
+
+    ..."
+label_settings = SubResource("LabelSettings_gg2ix")
 autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]

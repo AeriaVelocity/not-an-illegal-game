@@ -1,7 +1,10 @@
-extends Control
+extends ColorRect
 
 var current_screen = 1
 var previous_screen = 0
+
+var current_node: Control
+var previous_node: Control
 
 var is_ready = false
 
@@ -23,24 +26,55 @@ func _input(event):
 
         match current_screen:
             0:
-                if key == "1":
+                if key == "Escape":
                     current_screen = 1
             1:
                 if key == "Enter":
                     current_screen = 2
-                if key == "1":
+                if key == "1" || key == "F1":
                     current_screen = 0
-                if key == "3":
+                if key == "3" || key == "F3":
                     get_tree().quit()
+            _:
+                pass
 
-func _process(_delta):
-    if not is_ready:
-        return
+func set_keys():
+    var keys = $Keys/Label
 
-    var current_node = get_node("Screen " + str(current_screen))
-    var previous_node = get_node("Screen " + str(previous_screen))
+    match current_screen:
+        0:
+            keys.text = "F3=Quit  Escape=Previous Screen"
+        1:
+            keys.text = "Enter=Continue  F1=Help  F3=Quit"
+        _:
+            keys.text = "???"
+
+func set_screen():
+    current_node = get_node("Screen " + str(current_screen))
+    previous_node = get_node("Screen " + str(previous_screen))
 
     if previous_node:
         previous_node.hide()
     if current_node:
         current_node.show()
+
+    set_keys()
+
+func set_colours():
+    if current_screen == 0:
+        color = "#afafaf"
+        $Keys.color = "#000089"
+        current_node.get_node("Label").modulate = Color.BLACK
+        $Keys/Label.modulate = Color.WHITE
+    else:
+        color = "#000089"
+        $Keys.color = "#afafaf"
+        current_node.get_node("Label").modulate = Color.WHITE
+        $Keys/Label.modulate = Color.BLACK
+
+func _process(_delta):
+    if not is_ready:
+        return
+
+    set_screen()
+    set_colours()

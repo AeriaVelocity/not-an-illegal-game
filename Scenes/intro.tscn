@@ -1,15 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwdhkid85616g"]
 
 [ext_resource type="Script" path="res://Scripts/intro_sequence.gd" id="1_j8b0u"]
+[ext_resource type="FontFile" uid="uid://c5c2w3cb83hy5" path="res://Mx437_IBM_VGA_8x16.ttf" id="1_w7rxy"]
 
-[sub_resource type="SystemFont" id="SystemFont_or8xq"]
-font_names = PackedStringArray("Lucida Console", "Source Code Pro", "Menlo", "Monospace")
-font_weight = 500
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_5yfoo"]
-font = SubResource("SystemFont_or8xq")
-font_size = 22
+[sub_resource type="LabelSettings" id="LabelSettings_05w7b"]
+font = ExtResource("1_w7rxy")
+font_size = 32
+font_color = Color(0.808998, 0.808998, 0.808998, 1)
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -37,7 +34,7 @@ anchor_bottom = 1.0
 offset_top = -1080.0
 grow_horizontal = 2
 grow_vertical = 0
-label_settings = SubResource("LabelSettings_5yfoo")
+label_settings = SubResource("LabelSettings_05w7b")
 autowrap_mode = 2
 text_overrun_behavior = 2
 script = ExtResource("1_j8b0u")

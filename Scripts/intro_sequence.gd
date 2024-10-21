@@ -101,7 +101,11 @@ func animate_text(input):
             text += "\n"
             continue
 
-        text += line + "\n"
+        if line == "":
+            # This is to stop the font from displaying a newline character
+            text += " \n"
+        else:
+            text += line + "\n"
 
         await get_tree().create_timer(line_delay).timeout
 
