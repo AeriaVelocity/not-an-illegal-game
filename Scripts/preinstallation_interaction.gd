@@ -23,7 +23,17 @@ func _input(event):
     var key = event.as_text()
 
     if event is InputEventKey and event.is_pressed():
+        if $ExitPrompt.visible:
+            if key == "F3":
+                get_tree().quit()
+            if key == "Escape":
+                $ExitPrompt.hide()
+            return
+
         previous_screen = current_screen
+
+        if key == "3" || key == "F3":
+            $ExitPrompt.show()
 
         match current_screen:
             0:
@@ -34,8 +44,6 @@ func _input(event):
                     current_screen = 2
                 if key == "1" || key == "F1":
                     current_screen = 0
-                if key == "3" || key == "F3":
-                    get_tree().quit()
                 if key == "5" || key == "F5":
                     colour_removed = true
             _:
