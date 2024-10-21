@@ -7,32 +7,28 @@ var version_strings = {
     "game_version": ProjectSettings.get_setting("application/config/version"),
 }
 
-var UNSUPPORTED_TEXT = """GogetterBIOS v{engine_version}
+var HEADER = """GogetterBIOS v{engine_version}
 
 Welcome to Not An Illegal DOS (v{game_version})
 Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
 
-This game is not supported on your {platform_name} device.
+""".format(version_strings)
 
-System halted.""".format(version_strings).format({ "platform_name": OS.get_name() })
+var UNSUPPORTED_TEXT = HEADER + """This game is not supported on your {platform_name} device.
 
-var STARTUP_TEXT = """GogetterBIOS v{engine_version}
+System halted.""".format({ "platform_name": OS.get_name() })
 
-Welcome to Not An Illegal DOS (v{game_version})
-Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
+var WEB_TEXT = HEADER + """This game is not supported inside a web browser.
 
-C:\\>(TYPED)naig
+System halted."""
+
+var STARTUP_TEXT = HEADER + """C:\\>(TYPED)naig
 
 Starting Not An Illegal Game...
 (WAIT=0.8s)
-(SCENE=Scenes/startup.tscn)""".format(version_strings)
+(SCENE=Scenes/startup.tscn)"""
 
-var SETUP_TEXT = """GogetterBIOS v{engine_version}
-
-Welcome to Not An Illegal DOS (v{game_version})
-Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
-
-C:\\>(TYPED)A:
+var SETUP_TEXT = HEADER + """C:\\>(TYPED)A:
 
 Insert a diskette into device A: and press any key to continue
 (WAIT=0.6s)
@@ -49,7 +45,7 @@ If you accept these terms, press the Enter key to proceed to Setup.
 (You won't see this screen again next time you start the game.)
 
 (USERWAIT)
-(SCENE=Scenes/preinstallation.tscn)""".format(version_strings)
+(SCENE=Scenes/preinstallation.tscn)"""
 
 func animate_characters(line, speed):
     var index = line.find("(TYPED)")
@@ -122,6 +118,8 @@ func _ready():
     match OS.get_name():
         "Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
             animate_text(SETUP_TEXT)
+        "Web":
+            animate_text(WEB_TEXT)
         _:
             animate_text(UNSUPPORTED_TEXT)
 
