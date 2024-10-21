@@ -32,7 +32,7 @@ func _input(event):
 
         previous_screen = current_screen
 
-        if key == "3" || key == "F3":
+        if key == "F3":
             $ExitPrompt.show()
 
         match current_screen:
@@ -42,9 +42,9 @@ func _input(event):
             1:
                 if key == "Enter":
                     current_screen = 2
-                if key == "1" || key == "F1":
+                if key == "F1":
                     current_screen = 0
-                if key == "5" || key == "F5":
+                if key == "F5":
                     colour_removed = true
             _:
                 pass
