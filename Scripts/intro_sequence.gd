@@ -115,6 +115,7 @@ func animate_text(input):
         await get_tree().create_timer(line_delay).timeout
 
 func _ready():
+    Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
     match OS.get_name():
         "Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
             animate_text(SETUP_TEXT)
