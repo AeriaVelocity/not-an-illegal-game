@@ -7,11 +7,13 @@ var version_strings = {
     "game_version": ProjectSettings.get_setting("application/config/version"),
 }
 
+var extra_info = ""
+
 var HEADER = """GogetterBIOS v{engine_version}
 
 Welcome to Not An Illegal DOS (v{game_version})
 Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
-
+{extra_info}
 """.format(version_strings)
 
 var UNSUPPORTED_TEXT = HEADER + """This game is not supported on your {platform_name} device.
@@ -114,15 +116,42 @@ func animate_text(input):
 
         await get_tree().create_timer(line_delay).timeout
 
+func controller_message() -> String:
+    var message: String
+    var controllers = len(Input.get_connected_joypads())
+
+    if controllers == 0:
+        return ""
+
+    var controller_message_prefix = "This game will not work with your " + Input.get_joy_name(0)
+
+    if controllers == 2:
+        message = controller_message_prefix + " and " + Input.get_joy_name(1) + "."
+    elif controllers >= 2:
+        message = controller_message_prefix + " and " + String(controllers) + " other controller(s)."
+    elif controllers == 1:
+        message = controller_message_prefix + "."
+
+    message += "/nPlease use a keyboard and mouse."
+
+    return message
+
+func add_extra_info(info):
+    extra_info += info + "\n"
+
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+    add_extra_info(controller_message())
+
+    var spaced_extra = "\n" + extra_info + "\n"
     match OS.get_name():
         "Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
-            animate_text(SETUP_TEXT)
+            animate_text(SETUP_TEXT.format({ "extra_info": spaced_extra }))
         "Web":
-            animate_text(WEB_TEXT)
+            animate_text(WEB_TEXT.format({ "extra_info": spaced_extra }))
         _:
-            animate_text(UNSUPPORTED_TEXT)
+            animate_text(UNSUPPORTED_TEXT.format({ "extra_info": spaced_extra }))
 
 func _input(event):
     if event is InputEventKey and Input.is_action_just_pressed("ui_accept"):
