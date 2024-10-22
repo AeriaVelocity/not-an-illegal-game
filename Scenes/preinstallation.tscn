@@ -145,19 +145,14 @@ text = "
         Illegal Game learns what it's like to feel pain.
      
     CDR100: Unknown error
-    CDR101: Known error
-    CDR102: Schrödinger's error
-    CDR103: Door open
+    CDR101: Schrödinger's error
+    CDR102: EMS memory needs to be thrown in the bin
+    CDR103: CDROM not Scottish Highlands or ISO-69420 format
     CDR104: Door exactly halfway open
     Sometimes Setup makes up random stuff for the hell of it. To choose the
     stuff you wish to be gaslighted by, press Enter. To choose a different
     option, use the Arrow keys to select the option you want, and then press
-    Enter.
-    
-    Not An Illegal Game is a puzzle/OS simulation game which will break the
-    concepts of everything you know about digital computing. You will use the
-    system, you will not use the system. You will win the game, you will not win
-    the game. This system was not made for you to understand."
+    Enter."
 label_settings = SubResource("LabelSettings_gg2ix")
 autowrap_mode = 2
 
