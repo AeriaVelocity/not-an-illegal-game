@@ -13,8 +13,8 @@ var HEADER = """GogetterBIOS v{engine_version}
 
 Welcome to Not An Illegal DOS (v{game_version})
 Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
-{extra_info}
-""".format(version_strings)
+
+{extra_info}""".format(version_strings)
 
 var KEYBOARDCHECK_TEXT = HEADER + """This game requires keyboard input.
 Please connect a physical keyboard to continue.
@@ -138,22 +138,28 @@ func controller_message() -> String:
     return message
 
 func add_extra_info(info):
+    if info == "":
+        return
     extra_info += info + "\n"
+
+func get_extra_info() -> String:
+    if extra_info == "":
+        return ""
+    return "\n" + extra_info + "\n"
 
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
     add_extra_info(controller_message())
 
-    var spaced_extra = "\n" + extra_info + "\n"
     match OS.get_name():
         "Android", "iOS":
-            await animate_text(KEYBOARDCHECK_TEXT.format({ "extra_info": spaced_extra }))
-            animate_text(SETUP_TEXT.format({ "extra_info": spaced_extra }))
+            await animate_text(KEYBOARDCHECK_TEXT.format({ "extra_info": get_extra_info() }))
+            animate_text(SETUP_TEXT.format({ "extra_info": get_extra_info() }))
         "Web":
-            animate_text(WEB_TEXT.format({ "extra_info": spaced_extra }))
+            animate_text(WEB_TEXT.format({ "extra_info": get_extra_info() }))
         _:
-            animate_text(SETUP_TEXT.format({ "extra_info": spaced_extra }))
+            animate_text(SETUP_TEXT.format({ "extra_info": get_extra_info() }))
 
 func _input(event):
     if event is InputEventKey and Input.is_action_just_pressed("ui_accept"):
