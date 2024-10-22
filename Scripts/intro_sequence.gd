@@ -16,11 +16,6 @@ Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
 
 {extra_info}""".format(version_strings)
 
-var KEYBOARDCHECK_TEXT = HEADER + """This game requires keyboard input.
-Please connect a physical keyboard to continue.
-
-(USERWAIT)"""
-
 var WEB_TEXT = HEADER + """This game is not supported inside a web browser.
 
 System halted."""
@@ -145,17 +140,21 @@ func add_extra_info(info):
 func get_extra_info() -> String:
     if extra_info == "":
         return ""
-    return "\n" + extra_info + "\n"
+    return extra_info + "\n"
 
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
     add_extra_info(controller_message())
 
+    if OS.get_name() == "Android" or OS.get_name() == "iOS":
+        add_extra_info("""Not An Illegal Game is not officially supported on {os_name}.
+To play this game, you need a physical keyboard as the software keyboard will not work.
+Please connect a real physical keyboard to continue.
+
+(USERWAIT)""".format({ "os_name": OS.get_name() }))
+
     match OS.get_name():
-        "Android", "iOS":
-            await animate_text(KEYBOARDCHECK_TEXT.format({ "extra_info": get_extra_info() }))
-            animate_text(SETUP_TEXT.format({ "extra_info": get_extra_info() }))
         "Web":
             animate_text(WEB_TEXT.format({ "extra_info": get_extra_info() }))
         _:
