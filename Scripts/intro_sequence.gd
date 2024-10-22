@@ -16,9 +16,10 @@ Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
 {extra_info}
 """.format(version_strings)
 
-var UNSUPPORTED_TEXT = HEADER + """This game is not supported on your {platform_name} device.
+var KEYBOARDCHECK_TEXT = HEADER + """This game requires keyboard input.
+Please connect a physical keyboard to continue.
 
-System halted.""".format({ "platform_name": OS.get_name() })
+(USERWAIT)"""
 
 var WEB_TEXT = HEADER + """This game is not supported inside a web browser.
 
@@ -146,12 +147,13 @@ func _ready():
 
     var spaced_extra = "\n" + extra_info + "\n"
     match OS.get_name():
-        "Windows", "macOS", "Linux", "FreeBSD", "NetBSD", "OpenBSD", "BSD":
+        "Android", "iOS":
+            await animate_text(KEYBOARDCHECK_TEXT.format({ "extra_info": spaced_extra }))
             animate_text(SETUP_TEXT.format({ "extra_info": spaced_extra }))
         "Web":
             animate_text(WEB_TEXT.format({ "extra_info": spaced_extra }))
         _:
-            animate_text(UNSUPPORTED_TEXT.format({ "extra_info": spaced_extra }))
+            animate_text(SETUP_TEXT.format({ "extra_info": spaced_extra }))
 
 func _input(event):
     if event is InputEventKey and Input.is_action_just_pressed("ui_accept"):
