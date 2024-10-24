@@ -1,8 +1,7 @@
 # Not An Illegal Game
 
 Not An Illegal Game is a satirical puzzle/OS simulation game taking heavy
-inspiration from and aimed at mocking the living hell out of classic Microsoft
-software, such as MS-DOS and Windows 95/98.
+inspiration from (and poking fun at) certain classic 90s operating systems.
 
 Not An Illegal Game will break the concepts of everything you know about digital
 computing. You will use the system, you will not use the system. You will win
@@ -17,11 +16,12 @@ you; it is inviting you to dance.
 
 ## Features
 
-* **Windows/DOS accuracy** - At least five minutes was spent making Not An
+* **Classic 90s Accuracy** - At least five minutes was spent making Not An
   Illegal Game resemble those classic OSes as closely as is reasonably possible.
 
-* **DOS-like command prompt** - You type a bunch of words, you hit Enter, and
-  that makes it go!
+* **DOS-like Command Prompt** - You type a bunch of words, you hit Enter, and
+  that makes it go! Just like the good old days, when typing the wrong thing
+  means your computer is now screaming "Abort, Retry, Fail" at you!
 
 * **To Error Is Illegal** - Be prepared for errors upon errors. Errors which are
   your responsibility, by the way. Enjoy the *authentic* 1990s computing
