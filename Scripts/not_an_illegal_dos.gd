@@ -39,7 +39,7 @@ func process_command(input: String, linebreak: bool = true):
         "exit":
             get_tree().quit()
         "echo":
-            command_output("".join(args))
+            command_output(" ".join(args))
         _:
             command_output("Bad command or file name")
 
