@@ -1,50 +1,48 @@
 # Not An Illegal Game
 
 Not An Illegal Game is a satirical puzzle/OS simulation game taking heavy
-inspiration from (and poking fun at) certain classic 90s operating systems.
+inspiration from (and poking fun at) certain classic 90s operating systems,
+which will break the concepts of everything you know about digital
+computing.
 
-Not An Illegal Game will break the concepts of everything you know about digital
-computing. You will use the system, you will not use the system. You will win
-the game, you will not win the game. This software was not meant for you to
-understand.
-
-But as you explore, slowly, meaning begins to arise, the paradoxes might start
-to make sense, perhaps you are powerful after all. The game is not here to fight
-you; it is inviting you to dance.
-
-(But rest assured, there's no Adventure Line™.)
+You will use the system, you will not use the system. You will win the game, you
+will not win the game. This software was not meant for you to understand.
 
 ## Features
 
 * **Classic 90s Accuracy** - At least five minutes was spent making Not An
   Illegal Game resemble those classic OSes as closely as is reasonably possible.
-
 * **DOS-like Command Prompt** - You type a bunch of words, you hit Enter, and
   that makes it go! Just like the good old days, when typing the wrong thing
   means your computer is now screaming "Abort, Retry, Fail" at you!
-
 * **To Error Is Illegal** - Be prepared for errors upon errors. Errors which are
   your responsibility, by the way. Enjoy the *authentic* 1990s computing
   experience!
-
 * **Bind-Mending Puzzles** - These aren't your Core i5's puzzles. These puzzles
   are designed to be as aggravating as possible, so you'll never get bored!
-
 * **"Helpful" AI Assistance** - Who says AI is a 2020s invention? Say hello to
   Clip-It, your virtual assistant! He'll help you write a letter, but not much
   else.
 
 ## System Requirements
 
-* A Windows, Mac or Linux system that supports Godot 4.3
+* **OS:** Windows 7/macOS 10.13/Linux 4.9 or better
+  * No, unfortunately you can't play the game on an actual DOS system unless
+    you can somehow backport Godot 4.3 to it
+* **Processor:** Intel Core 2 Duo E8200 or better
+* **Graphics:** Intel HD Graphics 2500 (Ivy Bridge) or equivalent
+* **Input:** A keyboard and mouse
+* **Memory:** 512 MB
+* **Storage:** 2 whole gigabytes
+* **Sound card**: Sound Blaster 16 or better
+* **Additional notes:** If you have any semi-modern computer, you can run this game.
 
-* A keyboard and mouse
+## On Android
 
-* At least 512 MB of RAM
+Not An Illegal Game is not officially supported on Android.
 
-* 2 whole gigabytes of hard disk space
-
-* A boomy sound card
+If you want an Android version (to play on ChromeOS or Android-x86 or even just
+an Android tablet with a keyboard), you'll have to build the game yourself.
 
 ## Installation
 
