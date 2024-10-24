@@ -46,7 +46,19 @@ an Android tablet with a keyboard), you'll have to build the game yourself.
 
 ## Installation
 
-TODO
+Not An Illegal Game ~~can be purchased~~ will be purchaseable from itch.io when
+it's released.
+
+Once you've downloaded the game, unzip it and place the unzipped folder wherever
+you like. On macOS you might want to place `Not An Illegal Game.app` in your
+Applications folder. On Windows and Linux, make sure `NotAnIllegalGame.pck` is
+placed next to the executable.
+
+When you're ready to play, run the executable:
+
+* **Windows**: `NotAnIllegalGame.exe`
+* **macOS**: `Not An Illegal Game.app`
+* **Linux**: `NotAnIllegalGame.x86_64`
 
 ## Gameplay
 
