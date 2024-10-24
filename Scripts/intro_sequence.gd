@@ -128,7 +128,7 @@ func controller_message() -> String:
     elif controllers == 1:
         message = controller_message_prefix + "."
 
-    message += "/nPlease use a keyboard and mouse."
+    message += "\nPlease use a keyboard and mouse."
 
     return message
 
