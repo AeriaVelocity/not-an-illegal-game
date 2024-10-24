@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c2p5p4wt1p5j7"]
+
+[ext_resource type="FontFile" uid="uid://c5c2w3cb83hy5" path="res://Mx437_IBM_VGA_8x16.ttf" id="1_onrsg"]
+
+[resource]
+font = ExtResource("1_onrsg")
+font_size = 32
+font_color = Color(0.658824, 0.658824, 0.658824, 1)

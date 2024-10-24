@@ -1,15 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://bygcowckre38n"]
+[gd_scene load_steps=12 format=3 uid="uid://bygcowckre38n"]
 
 [ext_resource type="Script" path="res://Scripts/preinstallation_interaction.gd" id="1_0t6bx"]
-[ext_resource type="FontFile" uid="uid://c5c2w3cb83hy5" path="res://Mx437_IBM_VGA_8x16.ttf" id="2_e22ee"]
+[ext_resource type="LabelSettings" uid="uid://c2p5p4wt1p5j7" path="res://Resources/default_font.tres" id="2_xk45s"]
 [ext_resource type="StyleBox" uid="uid://417p4qpiqo1f" path="res://Resources/exit-prompt-outline.tres" id="3_g30y1"]
 [ext_resource type="StyleBox" uid="uid://b3ltxto4iuhit" path="res://Resources/exit-prompt-title-style.tres" id="3_rlku3"]
+[ext_resource type="Script" path="res://Scripts/disk_space_list.gd" id="3_vnm4c"]
 [ext_resource type="LabelSettings" uid="uid://bhsc5ul65tafm" path="res://Resources/exit-prompt-title-label.tres" id="5_kb7wm"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_gg2ix"]
-font = ExtResource("2_e22ee")
-font_size = 32
-font_color = Color(0.658824, 0.658824, 0.658824, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll28w"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.65098, 0.65098, 0.65098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3e6g"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 20
+border_width_right = 20
+border_color = Color(0, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_6lioa"]
 length = 0.001
@@ -110,7 +120,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Enter=Continue  F1=Help  F3=Exit"
-label_settings = SubResource("LabelSettings_gg2ix")
+label_settings = ExtResource("2_xk45s")
 
 [node name="Screen 0" type="Control" parent="Background"]
 visible = false
@@ -153,7 +163,7 @@ text = "
     stuff you wish to be gaslighted by, press Enter. To choose a different
     option, use the Arrow keys to select the option you want, and then press
     Enter."
-label_settings = SubResource("LabelSettings_gg2ix")
+label_settings = ExtResource("2_xk45s")
 autowrap_mode = 2
 
 [node name="Screen 1" type="Control" parent="Background"]
@@ -192,7 +202,7 @@ text = "
           lack of files by using a backup program.
     
     To continue with Setup, press Enter."
-label_settings = SubResource("LabelSettings_gg2ix")
+label_settings = ExtResource("2_xk45s")
 autowrap_mode = 2
 
 [node name="Screen 2" type="Control" parent="Background"]
@@ -215,8 +225,88 @@ text = "
  Not An Illegal Game Setup
  ═════════════════════════
  
+    Setup needs to configure the unallocated space on your hard disk to prepare
+    it for use with Not An Illegal Game. All of your existing files will be
+    thrown in the incinerator along with the Setup program.
+    
+    To have Setup configure the space on your hard disk for you, choose the
+    recommended option.
+    
+    
+    
+    
+    
+    
+    To accept the selection, press Enter.
+    To change the selection, press the Up or Down arrow keys, and then press
+    Enter."
+label_settings = ExtResource("2_xk45s")
+autowrap_mode = 2
+
+[node name="Outline" type="Panel" parent="Background/Screen 2/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 401.0
+offset_right = -664.0
+offset_bottom = -579.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ll28w")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Screen 2/Label/Outline"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DiskSpaceList" type="VBoxContainer" parent="Background/Screen 2/Label/Outline/MarginContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("3_vnm4c")
+
+[node name="ConfigSpace" type="Label" parent="Background/Screen 2/Label/Outline/MarginContainer/DiskSpaceList"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_a3e6g")
+text = "Configure unallocated disk space (recommended)"
+label_settings = ExtResource("2_xk45s")
+
+[node name="ExitSetup" type="Label" parent="Background/Screen 2/Label/Outline/MarginContainer/DiskSpaceList"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_a3e6g")
+text = "Exit Setup."
+label_settings = ExtResource("2_xk45s")
+
+[node name="Screen 3" type="Control" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Screen 3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " 
+ Not An Illegal Game Setup
+ ═════════════════════════
+ 
     ..."
-label_settings = SubResource("LabelSettings_gg2ix")
+label_settings = ExtResource("2_xk45s")
 autowrap_mode = 2
 
 [node name="ExitPrompt" type="ColorRect" parent="Background"]

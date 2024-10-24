@@ -16,6 +16,11 @@ func _ready():
     await animations.animation_finished
     is_ready = true
 
+    var signals = get_node("/root/Signals")
+
+    signals.request_screen_change.connect(Callable(self, "change_screen"))
+    signals.request_exit.connect(Callable(self, "show_exit_prompt"))
+
 func _input(event):
     if not is_ready:
         return
@@ -27,13 +32,13 @@ func _input(event):
             if key == "F3":
                 get_tree().quit()
             if key == "Escape":
-                $ExitPrompt.hide()
+                hide_exit_prompt()
             return
 
         if key == "F1" and current_screen != 0:
             change_screen(0)
         if key == "F3":
-            $ExitPrompt.show()
+            show_exit_prompt()
 
         match current_screen:
             0:
@@ -50,6 +55,13 @@ func _input(event):
 func change_screen(screen):
     previous_screen = current_screen
     current_screen = screen
+    Signals.current_screen = current_screen
+
+func show_exit_prompt():
+    $ExitPrompt.show()
+
+func hide_exit_prompt():
+    $ExitPrompt.hide()
 
 func set_keys():
     var keys = $Keys/Label
@@ -59,6 +71,8 @@ func set_keys():
             keys.text = "F3=Quit  Escape=Previous Screen"
         1:
             keys.text = "Enter=Continue  F1=Help  F3=Quit  F5=Remove Colour"
+        2:
+            keys.text = "Enter=Continue  F1=Help  F3=Quit"
         _:
             keys.text = "???"
 
