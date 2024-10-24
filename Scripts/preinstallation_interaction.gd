@@ -30,7 +30,7 @@ func _input(event):
     if event is InputEventKey and event.is_pressed():
         if $ExitPrompt.visible:
             if key == "F3":
-                get_tree().quit()
+                exit_to_dos()
             if key == "Escape":
                 hide_exit_prompt()
             return
@@ -62,6 +62,9 @@ func show_exit_prompt():
 
 func hide_exit_prompt():
     $ExitPrompt.hide()
+
+func exit_to_dos():
+    get_tree().change_scene_to_file("res://Scenes/not_an_illegal_dos.tscn")
 
 func set_keys():
     var keys = $Keys/Label

@@ -46,7 +46,6 @@ func _process(_delta):
             option.label_settings = default_font
 
 func _input(event):
-    print(current_screen)
     if current_screen != 2:
         return
 
