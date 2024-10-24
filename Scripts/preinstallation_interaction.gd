@@ -30,24 +30,26 @@ func _input(event):
                 $ExitPrompt.hide()
             return
 
-        previous_screen = current_screen
-
+        if key == "F1" and current_screen != 0:
+            change_screen(0)
         if key == "F3":
             $ExitPrompt.show()
 
         match current_screen:
             0:
                 if key == "Escape":
-                    current_screen = 1
+                    change_screen(previous_screen)
             1:
                 if key == "Enter":
-                    current_screen = 2
-                if key == "F1":
-                    current_screen = 0
+                    change_screen(2)
                 if key == "F5":
                     colour_removed = true
             _:
                 pass
+
+func change_screen(screen):
+    previous_screen = current_screen
+    current_screen = screen
 
 func set_keys():
     var keys = $Keys/Label
