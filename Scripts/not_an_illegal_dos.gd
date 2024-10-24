@@ -4,6 +4,8 @@ var motd = """To run Setup again, type `setup`.
 
 %s""" % get_prompt()
 
+var prompt = "A:\\> "
+
 func _ready():
     text = motd
     call_deferred("grab_focus")
@@ -33,6 +35,8 @@ func process_command(input: String, linebreak: bool = true):
     var command = input.split(" ")[0]
     var args = input.split(" ").slice(1)
 
+    print("%s, %s" % [command, args])
+
     match command:
         "setup":
             get_tree().change_scene_to_file("res://Scenes/preinstallation.tscn")
@@ -41,14 +45,22 @@ func process_command(input: String, linebreak: bool = true):
         "echo":
             command_output(" ".join(args))
         _:
-            command_output("Bad command or file name")
+            if ":" in command and command.length() == 2:
+                set_prompt(command[0])
+                text += get_prompt()
+                reset_caret_position()
+            else:
+                command_output("Bad command or file name")
 
 func command_output(output: String):
     text += output + "\n" + get_prompt()
     reset_caret_position()
 
+func set_prompt(drive_letter: String):
+    prompt = "%s:\\>" % drive_letter
+
 func get_prompt() -> String:
-    return "A:\\>"
+    return prompt
 
 func reset_caret_position():
     set_caret_line(get_line_count())
