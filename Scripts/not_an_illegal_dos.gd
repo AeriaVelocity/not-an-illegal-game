@@ -25,16 +25,23 @@ func handle_enter_keypress():
 
     reset_caret_position()
 
-func process_command(command: String, linebreak: bool = true):
-    command = command.replace(get_prompt(), "").to_lower()
+func process_command(input: String, linebreak: bool = true):
     if linebreak:
         text += "\n"
-    if command == "setup":
-        get_tree().change_scene_to_file("res://Scenes/preinstallation.tscn")
-    elif command == "exit":
-        get_tree().quit()
-    else:
-        command_output("Bad command or file name")
+
+    input = input.replace(get_prompt(), "")
+    var command = input.split(" ")[0]
+    var args = input.split(" ").slice(1)
+
+    match command:
+        "setup":
+            get_tree().change_scene_to_file("res://Scenes/preinstallation.tscn")
+        "exit":
+            get_tree().quit()
+        "echo":
+            command_output("".join(args))
+        _:
+            command_output("Bad command or file name")
 
 func command_output(output: String):
     text += output + "\n" + get_prompt()
