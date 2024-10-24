@@ -64,6 +64,7 @@ func hide_exit_prompt():
     $ExitPrompt.hide()
 
 func exit_to_dos():
+    Signals.already_been_in_setup = true
     get_tree().change_scene_to_file("res://Scenes/not_an_illegal_dos.tscn")
 
 func set_keys():

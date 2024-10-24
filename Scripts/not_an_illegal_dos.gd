@@ -1,13 +1,20 @@
 extends TextEdit
 
-var motd = """To run Setup again, type `setup`.
+var motd = """
+Welcome to Not An Illegal DOS (v{game_version})
+Copyright (C) 2024 Arsalan "Aeri" Kazmi (AeriaVelocity)
 
-%s""" % get_prompt()
+Type `setup` to install Not An Illegal Game.""".format(
+    {"game_version": ProjectSettings.get_setting("application/config/version")}
+)
 
-var prompt = "A:\\> "
+var prompt: String = "A:\\>"
 
 func _ready():
-    text = motd
+    if Signals.already_been_in_setup:
+        motd = """
+Type `setup` to return to Setup."""
+    text = motd + "\n\n%s" % get_prompt()
     call_deferred("grab_focus")
     reset_caret_position()
 

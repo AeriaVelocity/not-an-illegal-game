@@ -25,4 +25,5 @@ theme_override_colors/font_color = Color(0.65098, 0.65098, 0.65098, 1)
 theme_override_fonts/font = ExtResource("1_6xahl")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_ypksv")
+caret_blink = true
 script = ExtResource("1_236wm")

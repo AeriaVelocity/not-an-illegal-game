@@ -11,39 +11,32 @@ var extra_info = ""
 
 var HEADER = """GogetterBIOS v{engine_version}
 
-Welcome to Not An Illegal DOS (v{game_version})
-Copyright (c) 2024 Arsalan 'Aeri' Kazmi (AeriaVelocity)
-
-{extra_info}""".format(version_strings)
+Running power-on sequence...
+(WAIT=1.5s)
+{extra_info}Initialising Not An Illegal Game...
+(WAIT=1s)
+""".format(version_strings)
 
 var WEB_TEXT = HEADER + """This game is not supported inside a web browser.
 
 System halted."""
 
-var STARTUP_TEXT = HEADER + """C:\\>(TYPED)naig
-
-Starting Not An Illegal Game...
-(WAIT=0.8s)
-(SCENE=Scenes/startup.tscn)"""
-
-var SETUP_TEXT = HEADER + """C:\\>(TYPED)A:
-
-Insert a diskette into device A: and press any key to continue
-(WAIT=0.6s)
-A:\\>(WAIT=0.3s)(TYPED)setup
-
-Initialising Not An Illegal Game...
-
-════════════ WARNING ════════════
+var ANTI_PIRACY_TEXT = """════════════ WARNING ════════════
 It is a serious crime to copy video games according to copyright law.
-If you downloaded this game illegally, power off your PC, sit in the corner and think about what you've done.
-Anyway, this game is made to resemble an old 90s operating system that can't be named for copyright/trademark reasons. You know, the one out of Redmond.
-Just letting you know now: EVERYTHING BEYOND THIS POINT is fictional, no matter how similar to a real PC this may look like.
-If you accept these terms, press the Enter key to proceed to Setup.
+If you downloaded this game illegally, power off your PC, sit in the corner
+and think about what you've done.
+
+Anyway, this game is made to resemble an old 90s operating system that can't
+be named for copyright/trademark reasons. You know, the one out of Redmond.
+
+Just letting you know now: EVERYTHING BEYOND THIS POINT is fictional, no matter
+how similar to a real PC this may look like.
+
+If you accept these terms, press the Enter key to proceed to NAI-DOS.
 (You won't see this screen again next time you start the game.)
 
 (USERWAIT)
-(SCENE=Scenes/preinstallation.tscn)"""
+(SCENE=Scenes/not_an_illegal_dos.tscn)"""
 
 func animate_characters(line, speed):
     var index = line.find("(TYPED)")
@@ -156,9 +149,9 @@ Please connect a real physical keyboard to continue.
 
     match OS.get_name():
         "Web":
-            animate_text(WEB_TEXT.format({ "extra_info": get_extra_info() }))
+            animate_text(HEADER.format({ "extra_info": get_extra_info() }) + WEB_TEXT)
         _:
-            animate_text(SETUP_TEXT.format({ "extra_info": get_extra_info() }))
+            animate_text(HEADER.format({ "extra_info": get_extra_info() }) + ANTI_PIRACY_TEXT)
 
 func _input(event):
     if event is InputEventKey and Input.is_action_just_pressed("ui_accept"):
